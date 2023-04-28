@@ -83,3 +83,24 @@ def afundados(frota, tabuleiro):
                     soma+=1
 
     return soma
+
+#Exercico 6
+
+def posicao_valida(frota, linha, coluna, orientacao, tamanho):
+
+    navio = define_posicoes(linha, coluna, orientacao, tamanho)
+
+    for cord in range(len(navio)):
+            if navio[cord][0] < 0 or navio[cord][0]>9 or navio[cord][1] < 0 or navio[cord][1]>9:
+                return False
+
+        
+
+    for lista_navio in frota.values():
+        for i in range(len(lista_navio)):
+            for j in lista_navio[i]:
+                if j in navio :
+                    return False
+
+    return True
+
