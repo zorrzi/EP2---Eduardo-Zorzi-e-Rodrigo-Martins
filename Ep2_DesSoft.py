@@ -39,3 +39,30 @@ def faz_jogada(tabuleiro, linha, coluna):
         tabuleiro[linha][coluna] = '-'
 
     return tabuleiro
+
+
+#Exercicio 4 
+
+def posiciona_frota(frota):
+    
+    grid = [
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+  ]
+    
+    
+    
+    for lista_navio in frota.values():
+        for i in range(len(lista_navio)):
+            for j in lista_navio[i]:
+                grid[j[0]][j[1]] = 1
+
+    return grid
