@@ -66,3 +66,20 @@ def posiciona_frota(frota):
                 grid[j[0]][j[1]] = 1
 
     return grid
+
+#Exercicio 5
+
+def afundados(frota, tabuleiro):
+
+    soma = 0
+
+    for lista_navios in frota.values():
+        for i in range(len(lista_navios)):
+            reset = 0
+            for j in lista_navios[i]:
+                if tabuleiro[j[0]][j[1]] == 'X':
+                    reset +=1
+                if reset == len(lista_navios[i]):
+                    soma+=1
+
+    return soma
