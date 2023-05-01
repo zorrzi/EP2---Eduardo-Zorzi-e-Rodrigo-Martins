@@ -104,3 +104,85 @@ def posicao_valida(frota, linha, coluna, orientacao, tamanho):
 
     return True
 
+
+
+# Exercicio 7:
+
+frota = {
+    "porta-aviões":[],
+    "navio-tanque":[],
+    "contratorpedeiro":[],
+    "submarino": [],
+}
+
+i = 0
+tamanho = 4
+while i < 1:
+    print('Insira as informações referentes ao navio porta-aviões que possui tamanho {0}'.format(tamanho))
+    linha = int(input('Linha: '))
+    coluna = int(input('Coluna: '))
+    orientacao = input('[1] Vertical [2] Horizontal > ')
+    if orientacao == '1':
+        orientacao = 'vertical'
+
+
+    if posicao_valida(frota, linha, coluna, orientacao, tamanho) == True:
+        for navios in frota:
+            frota['porta-aviões'].append([linha,coluna])
+        i+=1
+    else:
+        print('Esta posição não está válida!')
+
+i = 0
+tamanho = 3
+while i < 2:
+    print('Insira as informações referentes ao navio porta-aviões que possui tamanho {0}'.format(tamanho))
+    linha = int(input('Linha: '))
+    coluna = int(input('Coluna: '))
+    orientacao = input('[1] Vertical [2] Horizontal > ')
+    if orientacao == '1':
+        orientacao = 'vertical'
+
+
+    if posicao_valida(frota, linha, coluna, orientacao, tamanho) == True:
+        for navios in frota:
+            frota['navio-tanque'].append([linha,coluna])
+        i+=1
+    else:
+        print('Esta posição não está válida!')
+
+i = 0
+tamanho = 2
+while i < 3:
+    print('Insira as informações referentes ao navio porta-aviões que possui tamanho {0}'.format(tamanho))
+    linha = int(input('Linha: '))
+    coluna = int(input('Coluna: '))
+    orientacao = input('[1] Vertical [2] Horizontal > ')
+    if orientacao == '1':
+        orientacao = 'vertical'
+
+
+    if posicao_valida(frota, linha, coluna, orientacao, tamanho) == True:
+        for navios in frota:
+            frota['contratorpedeiro'].append([linha,coluna])
+        i+=1
+    else:
+        print('Esta posição não está válida!')
+
+i = 0
+tamanho = 1
+while i < 4:
+    print('Insira as informações referentes ao navio porta-aviões que possui tamanho {0}'.format(tamanho))
+    linha = int(input('Linha: '))
+    coluna = int(input('Coluna: '))
+    orientacao = input('[1] Vertical [2] Horizontal > ')
+    if orientacao == '1':
+        orientacao = 'vertical'
+
+
+    if posicao_valida(frota, linha, coluna, orientacao, tamanho) == True:
+        for navios in frota:
+            frota['submarino'].append([linha,coluna])
+        i+=1
+    else:
+        print('Esta posição não está válida!')
