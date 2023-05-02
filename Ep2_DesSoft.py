@@ -115,75 +115,101 @@ frota = {
     "submarino": [],
 }
 
-i = 0
-tamanho = 4
-while i < 1:
-    print('Insira as informações referentes ao navio porta-aviões que possui tamanho 4')
-    linha = int(input('Linha: '))
-    coluna = int(input('Coluna: '))
-    orientacao = input('[1] Vertical [2] Horizontal > ')
-
+i=0
+while i<1:
+    print ('Insira as informações referentes ao navio porta-aviões que possui tamanho 4')
+    linha= int(input('Linha: '))
+    coluna= int(input('Coluna: '))
+    orientacao= input('[1] Vertical [2] Horizontal >')
     if orientacao == '1':
         orientacao = 'vertical'
 
-
-    if posicao_valida(frota, linha, coluna, orientacao, tamanho) == True:
-        frota = preenche_frota(frota, 'porta-aviões', linha, coluna, orientacao, tamanho)
-        i+=1
+    if posicao_valida(frota, linha, coluna, orientacao, 4) == True:
+        frota = preenche_frota(frota, 'porta-aviões', linha, coluna, orientacao, 4)
+        i += 1
     else:
-        print('Esta posição não está válida!')
+        print ('Esta posição não está válida!')
 
-i = 0
-tamanho = 3
-while i < 2:
-    print('Insira as informações referentes ao navio navio-tanque que possui tamanho 3')
-    linha = int(input('Linha: '))
-    coluna = int(input('Coluna: '))
-    orientacao = input('[1] Vertical [2] Horizontal > ')
 
+i=0
+while i<2:
+    print ('Insira as informações referentes ao navio navio-tanque que possui tamanho 3')
+    linha= int(input('Linha: '))
+    coluna= int(input('Coluna: '))
+    orientacao= input('[1] Vertical [2] Horizontal >')
     if orientacao == '1':
         orientacao = 'vertical'
 
-
-    if posicao_valida(frota, linha, coluna, orientacao, tamanho) == True:
-        frota = preenche_frota(frota, 'navio-tanque', linha, coluna, orientacao, tamanho)
-        i+=1
+    if posicao_valida(frota, linha, coluna, orientacao, 3) == True:
+        frota = preenche_frota(frota, 'navio-tanque', linha, coluna, orientacao, 3)
+        i += 1
     else:
-        print('Esta posição não está válida!')
+        print ('Esta posição não está válida!')
 
-i = 0
-tamanho = 2
-while i < 3:
-    print('Insira as informações referentes ao navio contratorpedeiro que possui tamanho 2')
-    linha = int(input('Linha: '))
-    coluna = int(input('Coluna: '))
-    orientacao = input('[1] Vertical [2] Horizontal > ')
-
+i=0
+while i<3:
+    print ('Insira as informações referentes ao navio contratorpedeiro que possui tamanho 2')
+    linha= int(input('Linha: '))
+    coluna= int(input('Coluna: '))
+    orientacao= input('[1] Vertical [2] Horizontal >')
     if orientacao == '1':
         orientacao = 'vertical'
 
-
-    if posicao_valida(frota, linha, coluna, orientacao, tamanho) == True:
-        frota = preenche_frota(frota, 'contratorpedeiro', linha, coluna, orientacao, tamanho)
-        i+=1
+    if posicao_valida(frota, linha, coluna, orientacao, 2) == True:
+        frota = preenche_frota(frota, 'contratorpedeiro', linha, coluna, orientacao, 2)
+        i += 1
     else:
-        print('Esta posição não está válida!')
+        print ('Esta posição não está válida!')
 
-i = 0
-tamanho = 1
-while i < 4:
-    print('Insira as informações referentes ao navio submarino que possui tamanho 1')
-    linha = int(input('Linha: ')) 
-    coluna = int(input('Coluna: '))
-    
-    if orientacao == '1':
-        orientacao = 'vertical'
-
-
-    if posicao_valida(frota, linha, coluna, orientacao, tamanho) == True:
-        frota = preenche_frota(frota, 'submarino', linha, coluna, orientacao, tamanho)
-        i+=1
+i=0
+while i<4:
+    print ('Insira as informações referentes ao navio submarino que possui tamanho 1')
+    linha= int(input('Linha: '))
+    coluna= int(input('Coluna: '))
+    if posicao_valida(frota, linha, coluna, 'vertical', 1) == True:
+        frota = preenche_frota(frota, 'submarino', linha, coluna, orientacao, 1)
+        i += 1
     else:
-        print('Esta posição não está válida!')
+        print ('Esta posição não está válida!')
 
-print(frota)
+print (frota)
+
+#Exercicio 8
+
+frota_oponente = {
+    'porta-aviões': [
+        [[9, 1], [9, 2], [9, 3], [9, 4]]
+    ],
+    'navio-tanque': [
+        [[6, 0], [6, 1], [6, 2]],
+        [[4, 3], [5, 3], [6, 3]]
+    ],
+    'contratorpedeiro': [
+        [[1, 6], [1, 7]],
+        [[0, 5], [1, 5]],
+        [[3, 6], [3, 7]]
+    ],
+    'submarino': [
+        [[2, 7]],
+        [[0, 6]],
+        [[9, 7]],
+        [[7, 6]]
+    ]
+}
+
+tabuleiro_oponente= posiciona_frota(frota_oponente)
+
+tabuleiro_jogador = posiciona_frota(frota)
+
+jogando = True 
+while jogando == True:   #loop peincipal
+    def monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente):
+    texto = ''
+    texto += '   0  1  2  3  4  5  6  7  8  9         0  1  2  3  4  5  6  7  8  9\n'
+    texto += '_______________________________      _______________________________\n'
+
+    for linha in range(len(tabuleiro_jogador)):
+        jogador_info = '  '.join([str(item) for item in tabuleiro_jogador[linha]])
+        oponente_info = '  '.join([info if str(info) in 'X-' else '0' for info in tabuleiro_oponente[linha]])
+        texto += f'{linha}| {jogador_info}|     {linha}| {oponente_info}|\n'
+    return texto    
