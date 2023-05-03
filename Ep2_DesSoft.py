@@ -217,7 +217,7 @@ def monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente):
 
 jogando = True
 nova = [] 
-while jogando == True:   #loop peincipal
+while jogando == True:   #loop principal
     print (monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente))
     repetida= True
 
@@ -231,6 +231,7 @@ while jogando == True:   #loop peincipal
         while coluna >9 or coluna <0:
             print('Coluna inválida!')
             coluna= int(input('jogador, qual coluna deseja atacar? '))
+        
         jogada= [linha,coluna]
         if jogada not in nova:
             nova.append(jogada)
