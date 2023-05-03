@@ -201,9 +201,7 @@ tabuleiro_oponente= posiciona_frota(frota_oponente)
 
 tabuleiro_jogador = posiciona_frota(frota)
 
-jogando = True 
-while jogando == True:   #loop peincipal
-    def monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente):
+def monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente):
     texto = ''
     texto += '   0  1  2  3  4  5  6  7  8  9         0  1  2  3  4  5  6  7  8  9\n'
     texto += '_______________________________      _______________________________\n'
@@ -212,4 +210,37 @@ while jogando == True:   #loop peincipal
         jogador_info = '  '.join([str(item) for item in tabuleiro_jogador[linha]])
         oponente_info = '  '.join([info if str(info) in 'X-' else '0' for info in tabuleiro_oponente[linha]])
         texto += f'{linha}| {jogador_info}|     {linha}| {oponente_info}|\n'
-    return texto    
+    return texto
+
+
+
+
+jogando = True
+nova = [] 
+while jogando == True:   #loop peincipal
+    print (monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente))
+    repetida= True
+
+    while repetida == True:
+        linha= int(input('Jogador, qual linha deseja atacar? '))
+        while linha > 9 or linha < 0:
+            print('Linha inválida!')
+            linha= int(input('Jogador, qual linha deseja atacar? '))
+
+        coluna= int(input('jogador, qual coluna deseja atacar? '))
+        while coluna >9 or coluna <0:
+            print('Coluna inválida!')
+            coluna= int(input('jogador, qual coluna deseja atacar? '))
+        jogada= [linha,coluna]
+        if jogada not in nova:
+            nova.append(jogada)
+            repetida = False
+        else:
+            print('A posição linha LINHA e coluna COLUNA já foi informada anteriormente')
+
+    tabuleiro_oponente= faz_jogada(tabuleiro_oponente,linha,coluna)  
+    if afundados(frota_oponente,tabuleiro_oponente) == 10:
+        jogando= False
+        print('Parabéns! Você derrubou todos os navios do seu oponente!')
+
+    
