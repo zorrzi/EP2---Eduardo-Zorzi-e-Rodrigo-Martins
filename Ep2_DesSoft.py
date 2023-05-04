@@ -236,7 +236,7 @@ while jogando == True:   #loop principal
             nova.append(jogada)
             repetida = False
         else:
-            print('A posição linha LINHA e coluna COLUNA já foi informada anteriormente')
+            print('A posição linha {0} e coluna {1} já foi informada anteriormente'.format(linha, coluna))
 
     tabuleiro_oponente= faz_jogada(tabuleiro_oponente,linha,coluna)  
     if afundados(frota_oponente,tabuleiro_oponente) == 10:
