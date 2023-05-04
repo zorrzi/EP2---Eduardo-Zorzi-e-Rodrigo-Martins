@@ -172,7 +172,6 @@ while i<4:
     else:
         print ('Esta posição não está válida!')
 
-print (frota)
 
 #Exercicio 8
 
