@@ -1,4 +1,5 @@
 import random
+random.seed(2)
 #Exercicio 1
 
 def define_posicoes(linha, coluna, orientacao, tamanho):
@@ -253,7 +254,7 @@ while jogando == True:   #loop principal
    
         pcoluna= random.randint(0,9)
         
-        pjogada= [linha,coluna]
+        pjogada= [plinha,pcoluna]
         if pjogada not in nova_inimigo:
             nova_inimigo.append(pjogada)
             print('Seu oponente está atacando na linha {0} e coluna {1}'.format(linha, coluna))
