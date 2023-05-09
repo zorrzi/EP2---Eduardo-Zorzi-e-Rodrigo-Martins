@@ -1,3 +1,4 @@
+import random
 #Exercicio 1
 
 def define_posicoes(linha, coluna, orientacao, tamanho):
@@ -215,10 +216,12 @@ def monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente):
 
 
 jogando = True
-nova = [] 
+nova = []
+nova_inimigo=[] 
 while jogando == True:   #loop principal
     print (monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente))
     repetida= True
+    repetida_inimigo= True
 
     while repetida == True:
         linha= int(input('Jogador, qual linha deseja atacar? '))
@@ -242,5 +245,33 @@ while jogando == True:   #loop principal
     if afundados(frota_oponente,tabuleiro_oponente) == 10:
         jogando= False
         print('Parabéns! Você derrubou todos os navios do seu oponente!')
+        break
+
+    #Exercicio 9
+    while repetida_inimigo== True:
+        plinha= random.radint(0,9)
+   
+        pcoluna= random.radint(0,9)
+        
+        pjogada= [linha,coluna]
+        if pjogada not in nova_inimigo:
+            nova_inimigo.append(pjogada)
+            print('Seu oponente está atacando na linha {0} e coluna {1}'.format(linha, coluna))
+            repetida_inimigo= False
+ 
+        
+
+    tabuleiro_jogador= faz_jogada(tabuleiro_jogador,linha,coluna)  
+    if afundados(frota,tabuleiro_jogador) == 10:
+        jogando= False
+        print('Xi! O oponente derrubou toda a sua frota =(')
+
+
+
+
+
+
+
+
 
     
