@@ -249,9 +249,9 @@ while jogando == True:   #loop principal
 
     #Exercicio 9
     while repetida_inimigo== True:
-        plinha= random.radint(0,9)
+        plinha= random.randint(0,9)
    
-        pcoluna= random.radint(0,9)
+        pcoluna= random.randint(0,9)
         
         pjogada= [linha,coluna]
         if pjogada not in nova_inimigo:
